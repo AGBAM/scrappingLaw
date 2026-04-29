@@ -10,8 +10,10 @@ st.title('Scrapping de Leis Municipais')
 link=st.text_input('Digite o link da lei que deseja scrappear')
 
 if link is not None:
-    options = Options()
-    options.add_argument('--headless')
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--no-sandbox")
+    options.add_argument("--disable-dev-shm-usage")
     nav=webdriver.Chrome(options=options)
     time.sleep(0.5)
     nav.get(link)
